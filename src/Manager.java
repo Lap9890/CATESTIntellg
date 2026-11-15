@@ -81,7 +81,7 @@ public class Manager {
 
     }
 
-
+    //Count the number of open ticket of each student
     private String counter(String studentName){
         StringBuffer sb = new StringBuffer();
         int counter = 0;
