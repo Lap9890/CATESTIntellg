@@ -26,9 +26,9 @@ public class Manager {
 
         Tickets.add(ticket);
 
-        //String buffer cbe ritorna il numero di ticket aperti da una persona
 
 
+        //
         return counter(ticket.getStudentName());
     }
 
@@ -74,7 +74,7 @@ public class Manager {
         return counter(studentName);
     }
 
-    //Check delle category
+    //Check if the category is the correct one
     private boolean categoryCheck (String category){
         return  Arrays.asList(allowedCategories).contains(category);
 
@@ -82,7 +82,7 @@ public class Manager {
 
     }
 
-    //Count the number of open ticket of each student
+    //Count the number of open ticket of the select  student and will return the n + the tickets
     private String counter(String studentName){
         StringBuffer sb = new StringBuffer();
         int counter = 0;
@@ -109,6 +109,7 @@ public class Manager {
        return  counter == 0? studentName + " has no open tickets" :  sb.toString();
     }
 
+    //This the logic of the Manger
     public String gestore (String testo) throws  InvalidCommandException{
         String parts [] = testo.split(";",-1);
         for(int i = 0; i< parts.length;i++){
