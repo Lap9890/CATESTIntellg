@@ -74,6 +74,7 @@ public class Manager {
         return counter(studentName);
     }
 
+    //Check delle category
     private boolean categoryCheck (String category){
         return  Arrays.asList(allowedCategories).contains(category);
 
