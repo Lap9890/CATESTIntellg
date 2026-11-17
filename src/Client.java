@@ -16,6 +16,22 @@ public class Client {
 
             System.out.println("Connected");
 
+            System.out.println("Welcome! Please note that EVERY line of command will have the following structure :  ");
+            System.out.println("command;Ticket Number;Student Name;category;note");
+            System.out.println("The avaiable category are: network/software/account/other");
+            System.out.println("The avaiable command are: open/list/close/import");
+            System.out.println("open will require : Ticket Number;Student Name;category;note ");
+            System.out.println("list will require : Student Name");
+            System.out.println("close will require : Ticket number");
+            System.out.println("when an argument in not required kindly insert -");
+            System.out.println("Example: list;-;Alice;-;-");
+            System.out.println("Enjoy");
+
+
+
+
+
+
             while (true) {
                 System.out.println("Please insert: command;Ticket Number;Student Name;category;note or stop to exit  ");
                 String message = scanner.nextLine();

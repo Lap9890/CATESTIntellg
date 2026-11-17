@@ -127,7 +127,7 @@ public class Manager {
                  }
                  else {
                      //Fix this
-                     throw new InvalidCommandException("Missing Student name or student ticket or category or bla bla ");
+                     throw new InvalidCommandException("Missing argument  ");
                  }
 
              case "close":
