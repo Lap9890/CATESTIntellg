@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Client {
     public static void main(String[] args) {
         try {
-            Socket s = new Socket("127.0.0.1", 8070);
+            Socket s = new Socket("127.0.0.1", 8069);
             BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
             PrintWriter out = new PrintWriter(s.getOutputStream(), true);
             Scanner scanner = new Scanner(System.in);
@@ -27,7 +27,7 @@ public class Client {
             System.out.println("Example: list;-;Alice;-;-");
             System.out.println("Enjoy");
 
-
+    System.out.println("Write import to import automatically some data");
 
 
 
@@ -36,16 +36,9 @@ public class Client {
                 System.out.println("Please insert: command;Ticket Number;Student Name;category;note or stop to exit  ");
                 String message = scanner.nextLine();
                 if (message.trim().toLowerCase().startsWith("import")) {
-                    String[] url = message.split(";", 2);
-                    if (url.length < 2) {
-                        System.out.println("Url is missing");
-                        continue;
-                    }
-                    String address = url[1].trim();
-                    if (address.isEmpty()) {
-                        System.out.println("Url is missing");
-                        continue;
-                    }
+
+                    String address = "https://raw.githubusercontent.com/Lap9890/Ticket/refs/heads/main/ticketstxt.txt";
+
                     GestoreUrl geo = new GestoreUrl(address, out, in);
                     geo.dowloand();
                     continue;

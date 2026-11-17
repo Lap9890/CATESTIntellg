@@ -13,7 +13,7 @@ public class CA1Server {
         System.out.println("Server ready");
         try {
 
-            s = new ServerSocket(8070);
+            s = new ServerSocket(8069);
             while (true) {
                 Socket ss = s.accept();
                 System.out.println("Server connected");
