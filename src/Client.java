@@ -37,10 +37,10 @@ public class Client {
                 String message = scanner.nextLine();
                 if (message.trim().toLowerCase().startsWith("import")) {
 
-                    String address = "https://raw.githubusercontent.com/Lap9890/Ticket/refs/heads/main/ticketstxt.txt";
+                    String address = "https://raw.githubusercontent.com/Lap9890/Ticket/refs/heads/main/tickets.txt";
 
-                    GestoreUrl geo = new GestoreUrl(address, out, in);
-                    geo.dowloand();
+                    URLManager geo = new URLManager(address, out, in);
+                    geo.download();
                     continue;
                 }
                 out.println(message);

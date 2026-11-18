@@ -23,7 +23,7 @@ public class Handler implements Runnable {
                     break;
                 }
                 try {
-                    out.println(m.gestore(inputLine));
+                    out.println(m.logic(inputLine));
                 }catch (InvalidCommandException e ){
                     out.println("InvalidCommandException: " + e.getMessage());
                 }

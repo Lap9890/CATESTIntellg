@@ -14,36 +14,22 @@ public class Manager {
     }
 
 
-    private synchronized String  open(Ticket ticket) throws InvalidCommandException {
+    public synchronized String open(String studentName, String ticketNumber, String category, String note)
+            throws InvalidCommandException {
+
+        if (!categoryCheck(category)) {
+            throw new InvalidCommandException("Category is wrong, category must be account, network, software or other");
+        }
 
         for (Ticket existingTicket : Tickets) {
-
-            if (existingTicket.getTicketNumber().equalsIgnoreCase(ticket.getTicketNumber())) {
-
-                throw new InvalidCommandException("ticket ID " + ticket.getTicketNumber() + " is already open");
+            if (existingTicket.getTicketNumber().equalsIgnoreCase(ticketNumber)) {
+                throw new InvalidCommandException("ticket ID " + ticketNumber + " is already open");
             }
         }
 
-        Tickets.add(ticket);
-
-
-
-        //
-        return counter(ticket.getStudentName());
+        Tickets.add(new Ticket(studentName, ticketNumber, category, note));
+        return counter(studentName);
     }
-
-
-    //Apertura Ticket direttamente con parametri
-    public synchronized String open(String studentName,String ticketNumber, String category, String note) throws InvalidCommandException {
-        if (!categoryCheck(category)){
-            throw new InvalidCommandException("Category is wrong, category must be account, network, software or other ");
-
-        }
-
-        Ticket t1 = new Ticket(studentName, ticketNumber, category, note);
-        return this.open(t1);
-    }
-
 
     public synchronized String close(String ticketNumber) throws InvalidCommandException {
         StringBuffer sb = new StringBuffer();
@@ -109,8 +95,8 @@ public class Manager {
        return  counter == 0? studentName + " has no open tickets" :  sb.toString();
     }
 
-    //This the logic of the Manger
-    public String gestore (String testo) throws  InvalidCommandException{
+    //This the logic of the Manager
+    public String logic (String testo) throws  InvalidCommandException{
         String parts [] = testo.split(";",-1);
         for(int i = 0; i< parts.length;i++){
             parts[i] = parts[i].trim();
@@ -126,7 +112,7 @@ public class Manager {
                      return this.open(parts[2],parts[1],parts[3],parts[4] );
                  }
                  else {
-                     //Fix this
+
                      throw new InvalidCommandException("Missing argument  ");
                  }
 
